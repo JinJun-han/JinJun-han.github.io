@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Glocal Korean Bridge (GKB) — Learn Korean. Prepare for Korea. Connect Your Future." />
+  <meta property="og:title" content="Glocal Korean Bridge | GKB" />
+  <meta property="og:description" content="한국어를 배우고, 한국생활을 준비하고, 사람과 미래를 연결합니다." />
+  <meta property="og:type" content="website" />
+  <title>Glocal Korean Bridge | GKB</title>
+  <style>
+    :root{
+      --navy:#102a43;--blue:#1769aa;--sky:#eaf5fb;--teal:#0f766e;--gold:#d99a20;
+      --ink:#20303c;--muted:#607381;--line:#dce7ee;--paper:#ffffff;--soft:#f6f9fb;
+      --shadow:0 18px 50px rgba(16,42,67,.10);--radius:22px;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:Inter,"Noto Sans KR","Apple SD Gothic Neo",Arial,sans-serif;color:var(--ink);background:var(--paper);line-height:1.7}
+    a{color:inherit} button{font:inherit}
+    .container{width:min(1120px,calc(100% - 36px));margin:auto}
+    .topbar{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.94);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+    .nav{height:72px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .brand{display:flex;align-items:center;gap:12px;text-decoration:none;font-weight:900;color:var(--navy);letter-spacing:-.02em}
+    .mark{width:42px;height:42px;border-radius:13px;background:linear-gradient(135deg,var(--navy),var(--blue));color:#fff;display:grid;place-items:center;font-weight:900;box-shadow:0 8px 22px rgba(23,105,170,.25)}
+    .brand small{display:block;color:var(--muted);font-size:.68rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
+    .navlinks{display:flex;gap:24px;align-items:center;font-size:.92rem;font-weight:700}
+    .navlinks a{text-decoration:none;color:#38505f}
+    .lang{border:1px solid var(--line);background:#fff;border-radius:999px;padding:8px 12px;cursor:pointer;font-weight:800;color:var(--navy)}
+    .apply-small{background:var(--navy);color:#fff!important;padding:10px 16px;border-radius:999px}
+    .hero{position:relative;overflow:hidden;padding:92px 0 78px;background:linear-gradient(135deg,#f8fcff 0%,#eef7fb 56%,#fff9ec 100%)}
+    .hero:before,.hero:after{content:"";position:absolute;border-radius:50%;filter:blur(2px)}
+    .hero:before{width:420px;height:420px;background:rgba(23,105,170,.08);right:-130px;top:-150px}
+    .hero:after{width:300px;height:300px;background:rgba(217,154,32,.08);left:-130px;bottom:-150px}
+    .hero-grid{position:relative;z-index:2;display:grid;grid-template-columns:1.25fr .75fr;align-items:center;gap:60px}
+    .eyebrow{display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid #d8e7f0;color:var(--blue);padding:8px 14px;border-radius:999px;font-size:.84rem;font-weight:900;margin-bottom:20px;box-shadow:0 8px 24px rgba(16,42,67,.05)}
+    h1{font-size:clamp(2.65rem,5.2vw,5rem);line-height:1.02;letter-spacing:-.055em;color:var(--navy);max-width:820px}
+    h1 .accent{color:var(--blue)}
+    .lead{font-size:clamp(1.08rem,2vw,1.34rem);color:#496272;max-width:760px;margin:26px 0 30px}
+    .hero-actions{display:flex;flex-wrap:wrap;gap:12px}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;text-decoration:none;font-weight:900;border-radius:14px;padding:14px 20px;transition:.2s ease}
+    .btn.primary{background:var(--navy);color:#fff;box-shadow:0 12px 28px rgba(16,42,67,.22)}
+    .btn.primary:hover{transform:translateY(-2px);background:#0b2033}
+    .btn.secondary{background:#fff;border:1px solid var(--line);color:var(--navy)}
+    .hero-card{background:rgba(255,255,255,.82);border:1px solid #dce8ee;border-radius:30px;padding:28px;box-shadow:var(--shadow)}
+    .bridge{height:210px;position:relative;display:flex;align-items:flex-end;justify-content:center;overflow:hidden;border-radius:22px;background:linear-gradient(180deg,#e7f4fb 0 55%,#d8edf6 55%)}
+    .bridge .sun{position:absolute;width:62px;height:62px;border-radius:50%;background:#f7c95c;right:34px;top:28px;box-shadow:0 0 0 12px rgba(247,201,92,.18)}
+    .bridge .deck{position:absolute;width:84%;height:10px;background:var(--navy);bottom:58px;border-radius:8px}
+    .bridge .arch{position:absolute;width:72%;height:115px;border:10px solid var(--blue);border-bottom:0;border-radius:180px 180px 0 0;bottom:58px}
+    .bridge .left,.bridge .right{position:absolute;bottom:58px;width:12px;height:72px;background:var(--navy)}
+    .bridge .left{left:22%}.bridge .right{right:22%}
+    .hero-card blockquote{font-size:1.12rem;font-weight:900;color:var(--navy);margin-top:22px}
+    .hero-card p{font-size:.9rem;color:var(--muted);margin-top:8px}
+    section{padding:86px 0}
+    .section-head{max-width:780px;margin-bottom:38px}
+    .kicker{font-size:.8rem;font-weight:900;color:var(--teal);letter-spacing:.12em;text-transform:uppercase;margin-bottom:8px}
+    h2{font-size:clamp(2rem,3.8vw,3.15rem);line-height:1.12;letter-spacing:-.04em;color:var(--navy)}
+    .section-head p{margin-top:14px;color:var(--muted);font-size:1.06rem}
+    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .card{border:1px solid var(--line);border-radius:var(--radius);padding:28px;background:#fff;box-shadow:0 10px 28px rgba(16,42,67,.05)}
+    .icon{width:48px;height:48px;border-radius:14px;display:grid;place-items:center;background:var(--sky);font-size:1.35rem;margin-bottom:18px}
+    .card h3{color:var(--navy);font-size:1.15rem;margin-bottom:8px}
+    .card p{color:var(--muted);font-size:.95rem}
+    .why{background:var(--soft)}
+    .journey{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;counter-reset:step}
+    .step{counter-increment:step;background:#fff;border:1px solid var(--line);border-radius:18px;padding:24px;position:relative}
+    .step:before{content:counter(step);display:grid;place-items:center;width:34px;height:34px;border-radius:50%;background:var(--navy);color:#fff;font-weight:900;margin-bottom:16px}
+    .step h3{color:var(--navy);font-size:1.05rem;margin-bottom:6px}.step p{color:var(--muted);font-size:.9rem}
+    .partner{background:linear-gradient(135deg,var(--navy),#123d5e);color:#fff}
+    .partner h2,.partner .kicker{color:#fff}.partner .section-head p{color:#d5e5ef}
+    .partner-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+    .partner-box{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);border-radius:22px;padding:28px}
+    .partner-box h3{font-size:1.2rem;margin-bottom:12px}.partner-box ul{padding-left:20px;color:#e4eef4}.partner-box li{margin:8px 0}
+    .quote{font-size:clamp(1.5rem,3vw,2.4rem);font-weight:900;line-height:1.35;margin:26px 0;color:#fff}
+    .values{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+    .value{border:1px solid var(--line);border-radius:16px;padding:20px;text-align:center;background:#fff}.value b{display:block;color:var(--navy);margin-bottom:5px}.value span{color:var(--muted);font-size:.85rem}
+    .notice{margin-top:28px;border-left:5px solid var(--gold);background:#fff8e9;padding:20px 22px;border-radius:12px;color:#5e4a1d}
+    .faq{background:var(--soft)}
+    details{background:#fff;border:1px solid var(--line);border-radius:14px;padding:0 20px;margin:10px 0}
+    summary{cursor:pointer;font-weight:900;color:var(--navy);padding:18px 0}details p{padding:0 0 18px;color:var(--muted)}
+    .cta{padding:76px 0;background:linear-gradient(135deg,#fff8e8,#edf7fc)}
+    .cta-box{background:#fff;border:1px solid var(--line);border-radius:30px;padding:50px;box-shadow:var(--shadow);display:grid;grid-template-columns:1fr auto;gap:30px;align-items:center}
+    .cta-box h2{font-size:clamp(1.9rem,3vw,2.7rem)}.cta-box p{margin-top:10px;color:var(--muted)}
+    footer{background:#0b2033;color:#b9cad6;padding:40px 0}
+    .foot{display:flex;justify-content:space-between;gap:20px;align-items:center}.foot strong{color:#fff}.foot small{display:block;margin-top:4px}
+    .lang-en{display:none} body.en .lang-ko{display:none} body.en .lang-en{display:block}
+    @media(max-width:900px){.navlinks a:not(.apply-small){display:none}.hero-grid,.partner-grid,.cta-box{grid-template-columns:1fr}.cards{grid-template-columns:1fr 1fr}.journey{grid-template-columns:1fr 1fr}.values{grid-template-columns:repeat(2,1fr)}.hero-card{max-width:620px}.cta-box{padding:32px}}
+    @media(max-width:620px){.container{width:min(100% - 24px,1120px)}.nav{height:64px}.brand div:last-child{font-size:.9rem}.brand small{font-size:.58rem}.hero{padding:68px 0 58px}.cards,.journey{grid-template-columns:1fr}.values{grid-template-columns:1fr}.hero-card{padding:18px}.bridge{height:170px}.cta-box{padding:26px}.foot{display:block}.foot div+div{margin-top:14px}.apply-small{padding:8px 12px}}
+  </style>
+</head>
+<body>
+<header class="topbar">
+  <div class="container nav">
+    <a class="brand" href="#top"><span class="mark">GKB</span><span>Glocal Korean Bridge<small>Real Korean · Real Life · Real People</small></span></a>
+    <nav class="navlinks" aria-label="Main navigation">
+      <a href="#vision"><span class="lang-ko">비전</span><span class="lang-en">Vision</span></a>
+      <a href="#partner"><span class="lang-ko">Migrant Partner</span><span class="lang-en">Migrant Partner</span></a>
+      <a href="#faq">FAQ</a>
+      <button class="lang" id="langBtn" aria-label="Switch language">EN</button>
+      <a class="apply-small" href="https://docs.google.com/forms/d/e/1FAIpQLSemvZJu6C2DYQ1DqokuOscqHrTy2K-36YSfIBOdsXFp8ZaiwA/viewform?usp=header" target="_blank" rel="noopener"><span class="lang-ko">신청하기</span><span class="lang-en">Apply</span></a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+<section class="hero">
+  <div class="container hero-grid">
+    <div>
+      <div class="eyebrow"><span>🌏</span><span class="lang-ko">Pre-Korea Human Bridge</span><span class="lang-en">Pre-Korea Human Bridge</span></div>
+      <div class="lang-ko">
+        <h1>Learn Korean.<br><span class="accent">Prepare for Korea.</span><br>Connect Your Future.</h1>
+        <p class="lead">GKB는 한국어만 가르치는 곳이 아닙니다. 한국에 오기 전부터 실제 한국생활, 직장 소통, 문화 이해, 그리고 믿을 수 있는 사람과의 연결을 함께 준비합니다.</p>
+      </div>
+      <div class="lang-en">
+        <h1>Learn Korean.<br><span class="accent">Prepare for Korea.</span><br>Connect Your Future.</h1>
+        <p class="lead">GKB is more than a Korean language program. We help people prepare for real life, workplace communication, culture, and trusted human connections before coming to Korea.</p>
+      </div>
+      <div class="hero-actions">
+        <a class="btn primary" href="https://docs.google.com/forms/d/e/1FAIpQLSemvZJu6C2DYQ1DqokuOscqHrTy2K-36YSfIBOdsXFp8ZaiwA/viewform?usp=header" target="_blank" rel="noopener"><span class="lang-ko">Founding Migrant Partner 신청 →</span><span class="lang-en">Apply as a Founding Migrant Partner →</span></a>
+        <a class="btn secondary" href="#vision"><span class="lang-ko">GKB 알아보기</span><span class="lang-en">Discover GKB</span></a>
+      </div>
+    </div>
+    <aside class="hero-card" aria-label="GKB vision quote">
+      <div class="bridge" role="img" aria-label="Bridge illustration"><span class="sun"></span><span class="arch"></span><span class="deck"></span><span class="left"></span><span class="right"></span></div>
+      <div class="lang-ko"><blockquote>“먼저 온 사람의 경험이 다음 사람의 길이 됩니다.”</blockquote><p>한국에서 먼저 살아본 사람의 실제 경험을 다음 학습자와 연결합니다.</p></div>
+      <div class="lang-en"><blockquote>“The experience of those who came first can guide those who come next.”</blockquote><p>We connect real experience from people who have lived in Korea with future learners and newcomers.</p></div>
+    </aside>
+  </div>
+</section>
+
+<section id="vision">
+  <div class="container">
+    <div class="section-head lang-ko"><div class="kicker">Our Vision</div><h2>언어를 넘어, 사람과 삶을 준비합니다.</h2><p>한국어 학습과 한국생활 준비 사이에는 큰 간격이 있습니다. GKB는 그 간격을 실제 경험과 신뢰 있는 사람의 연결로 메웁니다.</p></div>
+    <div class="section-head lang-en"><div class="kicker">Our Vision</div><h2>Beyond language, we prepare people for real life.</h2><p>There is a gap between learning Korean and actually living in Korea. GKB bridges that gap through practical experience and trustworthy human connection.</p></div>
+    <div class="cards">
+      <article class="card"><div class="icon">🗣️</div><div class="lang-ko"><h3>Real Korean</h3><p>교재 속 표현뿐 아니라 직장과 일상에서 실제로 쓰는 한국어를 배웁니다.</p></div><div class="lang-en"><h3>Real Korean</h3><p>Learn Korean that is actually used in workplaces and daily life, not only textbook expressions.</p></div></article>
+      <article class="card"><div class="icon">🏠</div><div class="lang-ko"><h3>Real Life</h3><p>교통, 병원, 직장문화, 생활규칙과 같이 한국에서 꼭 필요한 삶의 정보를 준비합니다.</p></div><div class="lang-en"><h3>Real Life</h3><p>Prepare for transport, healthcare, workplace culture, everyday rules and other practical parts of life in Korea.</p></div></article>
+      <article class="card"><div class="icon">🤝</div><div class="lang-ko"><h3>Real People</h3><p>이미 한국생활을 경험한 Migrant Partner와 연결해 혼자가 아닌 준비를 돕습니다.</p></div><div class="lang-en"><h3>Real People</h3><p>Connect with Migrant Partners who already know life in Korea, so preparation does not happen alone.</p></div></article>
+    </div>
+  </div>
+</section>
+
+<section class="why">
+  <div class="container">
+    <div class="section-head lang-ko"><div class="kicker">How GKB Works</div><h2>한국에 오기 전부터, 온 이후까지.</h2><p>GKB는 학습자가 한국에 도착한 뒤 처음부터 다시 시작하지 않도록 하나의 연결된 여정을 만듭니다.</p></div>
+    <div class="section-head lang-en"><div class="kicker">How GKB Works</div><h2>From before Korea to life in Korea.</h2><p>GKB creates one connected journey so learners do not have to start again from zero after arriving in Korea.</p></div>
+    <div class="journey">
+      <div class="step"><div class="lang-ko"><h3>한국어 학습</h3><p>기초 언어와 실제 생활 표현을 함께 배웁니다.</p></div><div class="lang-en"><h3>Learn Korean</h3><p>Build core language skills together with practical expressions.</p></div></div>
+      <div class="step"><div class="lang-ko"><h3>Pre-Korea 준비</h3><p>한국생활·문화·직장 소통을 미리 이해합니다.</p></div><div class="lang-en"><h3>Pre-Korea Preparation</h3><p>Understand life, culture and workplace communication before arrival.</p></div></div>
+      <div class="step"><div class="lang-ko"><h3>사람과 연결</h3><p>한국을 경험한 Migrant Partner의 이야기를 만납니다.</p></div><div class="lang-en"><h3>Human Connection</h3><p>Learn from Migrant Partners with real experience in Korea.</p></div></div>
+      <div class="step"><div class="lang-ko"><h3>계속되는 성장</h3><p>한국에 온 뒤에도 학습과 연결을 이어갑니다.</p></div><div class="lang-en"><h3>Keep Growing</h3><p>Continue learning and connecting after arriving in Korea.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="partner" id="partner">
+  <div class="container">
+    <div class="section-head lang-ko"><div class="kicker">Founding Migrant Partner</div><h2>당신의 경험이 누군가의 준비가 됩니다.</h2><p>GKB의 첫 Migrant Partner는 단순한 홍보대사가 아닙니다. 한국생활의 실제 경험을 교육과 연결에 담아내는 공동 설계자입니다.</p></div>
+    <div class="section-head lang-en"><div class="kicker">Founding Migrant Partner</div><h2>Your experience can become someone else's preparation.</h2><p>Founding Migrant Partners are more than ambassadors. They help co-design practical education and human connection based on real life in Korea.</p></div>
+    <div class="partner-grid">
+      <div class="partner-box lang-ko"><h3>함께할 수 있는 일</h3><ul><li>한국생활 경험과 문화 자문</li><li>한국어·직장 표현 검토</li><li>신규 이주민 멘토링</li><li>모국어 번역·검수</li><li>인터뷰·영상 콘텐츠 참여</li><li>자국 공동체 및 해외 한국어학원 연결</li></ul></div>
+      <div class="partner-box lang-ko"><h3>우리가 중요하게 보는 것</h3><ul><li>완벽한 한국어보다 신뢰와 책임</li><li>다른 문화와 종교에 대한 존중</li><li>개인정보와 약속을 지키는 태도</li><li>다른 사람을 실제로 돕고 싶은 마음</li><li>월 약 1~2시간의 현실적인 참여</li></ul></div>
+      <div class="partner-box lang-en"><h3>Possible Roles</h3><ul><li>Korea life experience and cultural advice</li><li>Korean and workplace expression review</li><li>Newcomer mentoring</li><li>Translation and translation review</li><li>Interview and video content participation</li><li>Community and overseas academy connection</li></ul></div>
+      <div class="partner-box lang-en"><h3>What We Value</h3><ul><li>Trust and responsibility over perfect Korean</li><li>Respect for different cultures and religions</li><li>Privacy and keeping commitments</li><li>A genuine desire to help others</li><li>A realistic commitment of about 1–2 hours per month</li></ul></div>
+    </div>
+    <div class="quote lang-ko">“먼저 온 사람의 경험이 다음 사람의 길이 됩니다.”</div>
+    <div class="quote lang-en">“The experience of those who came first can guide those who come next.”</div>
+    <a class="btn primary" style="background:#fff;color:#102a43" href="https://docs.google.com/forms/d/e/1FAIpQLSemvZJu6C2DYQ1DqokuOscqHrTy2K-36YSfIBOdsXFp8ZaiwA/viewform?usp=header" target="_blank" rel="noopener"><span class="lang-ko">Founding Migrant Partner 신청서 열기 →</span><span class="lang-en">Open the Partner Application →</span></a>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="section-head lang-ko"><div class="kicker">Our Principles</div><h2>사람의 존엄과 신뢰가 먼저입니다.</h2><p>GKB는 빠르게 많은 사람을 모으기보다, 좋은 사람과 신뢰를 쌓으며 성장합니다.</p></div>
+    <div class="section-head lang-en"><div class="kicker">Our Principles</div><h2>Dignity and trust come first.</h2><p>GKB grows by building trust with good people, not by gathering large numbers quickly.</p></div>
+    <div class="values">
+      <div class="value"><b>Dignity</b><span class="lang-ko">존엄</span><span class="lang-en">Every person matters.</span></div>
+      <div class="value"><b>Integrity</b><span class="lang-ko">정직</span><span class="lang-en">We do what we say.</span></div>
+      <div class="value"><b>Service</b><span class="lang-ko">섬김</span><span class="lang-en">We help before we promote.</span></div>
+      <div class="value"><b>Connection</b><span class="lang-ko">연결</span><span class="lang-en">People grow through trusted relationships.</span></div>
+      <div class="value"><b>Hope</b><span class="lang-ko">희망</span><span class="lang-en">Preparation opens new possibilities.</span></div>
+    </div>
+    <div class="notice lang-ko"><strong>중요 안내:</strong> GKB는 취업·비자·EPS 합격을 보장하는 기관이 아닙니다. 우리는 한국어 교육, 실제 한국생활 준비, 그리고 신뢰 있는 사람과의 연결을 돕습니다. 종교활동 참여는 지원이나 선발의 조건이 아닙니다.</div>
+    <div class="notice lang-en"><strong>Important:</strong> GKB does not guarantee jobs, visas, or EPS results. We focus on Korean education, practical preparation for life in Korea, and trustworthy human connection. Religious participation is not a condition for application or selection.</div>
+  </div>
+</section>
+
+<section class="faq" id="faq">
+  <div class="container">
+    <div class="section-head"><div class="kicker">FAQ</div><h2><span class="lang-ko">자주 묻는 질문</span><span class="lang-en">Frequently Asked Questions</span></h2></div>
+    <div class="lang-ko">
+      <details><summary>한국어를 아주 잘해야 Partner가 될 수 있나요?</summary><p>아닙니다. 완벽한 한국어보다 한국생활의 실제 경험, 신뢰, 책임감, 다른 사람을 돕는 태도를 더 중요하게 봅니다.</p></details>
+      <details><summary>Partner가 취업이나 비자를 도와주는 역할인가요?</summary><p>아닙니다. 취업·비자·EPS 결과를 보장하거나 대행하는 역할이 아닙니다. 필요한 경우 적절한 전문기관이나 전문가의 도움을 받도록 안내합니다.</p></details>
+      <details><summary>종교활동을 해야 하나요?</summary><p>아닙니다. 종교활동 참여는 요구하지 않으며, 종교나 문화가 선발 기준이 되지 않습니다.</p></details>
+      <details><summary>얼마나 자주 참여하나요?</summary><p>초기에는 월 약 1~2시간 정도의 소규모 참여를 기본으로 하며, 역할과 일정은 서로 합의해서 정합니다.</p></details>
+      <details><summary>선발 과정은 어떻게 되나요?</summary><p>신청서 → 약 30분 인터뷰 → 1개월 Trial Partner → 최종 역할 결정 순서로 진행합니다.</p></details>
+    </div>
+    <div class="lang-en">
+      <details><summary>Do I need excellent Korean to become a Partner?</summary><p>No. We value real experience, trust, responsibility and a helpful attitude more than perfect Korean.</p></details>
+      <details><summary>Is this a job or visa support role?</summary><p>No. Partners do not guarantee or broker jobs, visas or EPS results. When needed, we refer people to appropriate professionals or institutions.</p></details>
+      <details><summary>Is religious participation required?</summary><p>No. Religious participation is not required, and religion or culture is not a selection criterion.</p></details>
+      <details><summary>How much time is required?</summary><p>At the beginning, the basic commitment is about 1–2 hours per month. Specific roles and schedules are agreed together.</p></details>
+      <details><summary>What is the selection process?</summary><p>Application → approximately 30-minute interview → 1-month Trial Partner period → final role decision.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="container">
+    <div class="cta-box">
+      <div class="lang-ko"><h2>당신의 경험으로 다음 사람의 길을 밝혀주세요.</h2><p>GKB Founding Migrant Partner는 작은 그룹으로 시작합니다. 관심이 있다면 신청서를 보내주세요.</p></div>
+      <div class="lang-en"><h2>Let your experience light the way for someone coming next.</h2><p>GKB is starting with a small group of Founding Migrant Partners. If this vision speaks to you, apply today.</p></div>
+      <a class="btn primary" href="https://docs.google.com/forms/d/e/1FAIpQLSemvZJu6C2DYQ1DqokuOscqHrTy2K-36YSfIBOdsXFp8ZaiwA/viewform?usp=header" target="_blank" rel="noopener"><span class="lang-ko">신청서 작성하기 →</span><span class="lang-en">Apply Now →</span></a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="container foot"><div><strong>GKB · Glocal Korean Bridge</strong><small>Learn Korean. Prepare for Korea. Connect Your Future.</small></div><div><small>Real Korean · Real Life · Real People</small></div></div>
+</footer>
+
+<script>
+  const btn=document.getElementById('langBtn');
+  btn.addEventListener('click',()=>{
+    document.body.classList.toggle('en');
+    const en=document.body.classList.contains('en');
+    document.documentElement.lang=en?'en':'ko';
+    btn.textContent=en?'한국어':'EN';
+  });
+</script>
+</body>
+</html>
